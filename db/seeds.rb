@@ -15,7 +15,6 @@ require 'faker'
 end
 
 User.all.each do |user|
-  Pup.create!(user: user,name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000)r,image: "https://picsum.photos/200/300/?random")
+  Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://picsum.photos/200/300/?random")
 end
-
 
