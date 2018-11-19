@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.user :references
       t.timestamp :time_start
       t.timestamp :time_end
-
+      t.boolean :accepted
       t.timestamps
     end
   end
