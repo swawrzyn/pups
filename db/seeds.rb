@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+10.times do
+  User.create!(open_id: Faker::IDNumber.valid),
+end
+
+User.all.each do |user|
+  Pup.create!(user: user, name: Faker::Company.name,
+  location: Faker::Address.street_address,
+  description: Faker::GameOfThrones.quote,
+  price: (100..1000).sample,
+  image: "https://picsum.photos/200/300/?random")
+end
+
+
