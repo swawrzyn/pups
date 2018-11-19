@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  references: 
-  references: 
-  time_start: 2018-11-19 15:37:19
-  time_end: 2018-11-19 15:37:19
+  accepted: false
+  time_start: 2018-11-19 18:21:19
+  time_end: 2018-11-19 18:21:19
+  pup: one
+  user: one
 
 two:
-  references: 
-  references: 
-  time_start: 2018-11-19 15:37:19
-  time_end: 2018-11-19 15:37:19
+  accepted: false
+  time_start: 2018-11-19 18:21:19
+  time_end: 2018-11-19 18:21:19
+  pup: two
+  user: two
