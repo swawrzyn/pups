@@ -5,5 +5,5 @@ class Pup < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   has_many :bookings
-  has_many :reviews, ->(object) { where user_id: object.user_id }, through: :bookings
+  has_many :reviews, ->(object) { where "bookings.user_id != #{object.user_id}" }, through: :bookings
 end
