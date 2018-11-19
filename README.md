@@ -1,24 +1,5 @@
-# README
+# Pups - AirBNB clone for pop-up spaces
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project by: Zhenyu Liu, Tay Nguyen, Tommy Siu and Stefan Wawrzyn
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For Le Wagon Batch #194 (Shanghai) first project.
