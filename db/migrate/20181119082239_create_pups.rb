@@ -4,6 +4,7 @@ class CreatePups < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :location
       t.text :description
+      t.string :image
       t.string :price
       t.references :user, foreign_key: true
 

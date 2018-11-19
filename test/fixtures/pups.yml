@@ -4,6 +4,7 @@ one:
   name: MyString
   location: MyString
   description: MyText
+  image: MyString
   price: MyString
   user: one
 
@@ -11,5 +12,6 @@ two:
   name: MyString
   location: MyString
   description: MyText
+  image: MyString
   price: MyString
   user: two
