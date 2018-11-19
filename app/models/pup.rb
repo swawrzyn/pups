@@ -3,6 +3,7 @@ class Pup < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   validates :location, presence: true
   validates :description, presence: true
-  validates :price, presence:true
-
+  validates :price, presence: true
+  has_many :bookings
+  has_many :reviews, ->(object) { where user_id: object.user_id }, through: :bookings
 end
