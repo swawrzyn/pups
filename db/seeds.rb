@@ -8,8 +8,6 @@
 
 require 'faker'
 
-
-
 10.times do
   User.create!(open_id: Faker::IDNumber.valid)
 end
@@ -17,4 +15,3 @@ end
 User.all.each do |user|
   Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://picsum.photos/200/300/?random")
 end
-
