@@ -1,7 +1,7 @@
 class CreateBookings < ActiveRecord::Migration[5.2]
   def change
     create_table :bookings do |t|
-      t.boolean :accepted
+      t.boolean :accepted, default: false
       t.timestamp :time_start
       t.timestamp :time_end
       t.references :pup, foreign_key: true
