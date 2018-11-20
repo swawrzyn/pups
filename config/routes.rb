@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :pups, only: [ :index, :show, :update, :create, :destroy ]
-      resources :bookings, only: [ :new, :show, :update, :create ]
+      resources :pups, only: [ :index, :show, :update, :create, :destroy ] do
+        resources :bookings, only: [ :new, :create ]
+      end
+      resources :bookings, only: [:show, :update]
     end
   end
 end
