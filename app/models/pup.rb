@@ -32,6 +32,6 @@ class Pup < ApplicationRecord
         end
       end
     end
-    unavailable_dates
+    unavailable_dates.reverse
   end
 end
