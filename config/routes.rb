@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   get 'reviews/user'
   get 'reviews/booking'
 
+  post 'login', to: 'login#login'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :pups
+      resources :pups, only: [ :index, :show, :update, :create, :destroy ] do
+        resources :bookings, only: [ :new, :create ]
+      end
+      resources :bookings, only: [:show, :update]
     end
   end
 
@@ -16,3 +20,4 @@ Rails.application.routes.draw do
     end
   end
 end
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

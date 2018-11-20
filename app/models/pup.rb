@@ -15,4 +15,23 @@ class Pup < ApplicationRecord
     reviews.each { |review| average += review.rating }
     (average / reviews.count).floor
   end
+
+  def unavailable_dates
+    unavailable_dates = []
+    bookings.each do |booking|
+      finished = false
+      end_time = booking.time_end.to_date
+      start_time = booking.time_start.to_date
+
+      until finished
+        unavailable_dates << end_time
+        if end_time == start_time
+          finished = true
+        else
+          end_time = end_time.prev_day
+        end
+      end
+    end
+    unavailable_dates.reverse
+  end
 end
