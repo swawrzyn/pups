@@ -8,7 +8,11 @@
 
 require 'faker'
 
-User.destroy.all
+User.destroy_all
+Pup.destroy_all
+Booking.destroy_all
+Review.destroy_all
+
 
 10.times do
   User.create!(open_id: Faker::IDNumber.valid)
