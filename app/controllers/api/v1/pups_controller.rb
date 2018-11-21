@@ -1,4 +1,5 @@
 class Api::V1::PupsController < Api::V1::BaseController
+  skip_before_action :verify_authenticity_token
 
   def index
     @pups = Pup.all
@@ -11,7 +12,7 @@ class Api::V1::PupsController < Api::V1::BaseController
   def update
     @pup = Pup.find(params[:id])
     if (@pup.update pup_params)
-      render :show
+      render :show, status: :created
     else
       render_error
     end
@@ -19,8 +20,10 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def create
     @pup = Pup.new(pup_params)
-    if (@pup.save)
-      render :show
+    @user = User.find(params[:user_id])
+    @pup.user = @user
+    if @pup.save
+      render :show, status: :created
     else
       render_error
     end
@@ -33,12 +36,12 @@ class Api::V1::PupsController < Api::V1::BaseController
 
 
   private
-    def pup_params
-      params.require(:pup).permit(:name, :location, :description, :image, :price)
-    end
+  def pup_params
+    params.require(:pup).permit(:user_id, :name, :location, :description, :image, :price)
+  end
 
-    def render_error
-      render json: { error: @pup.errors.full_messages },
+  def render_error
+    render json: { error: @pup.errors.full_messages },
       status: :unprocessable_entity
-    end
+  end
 end

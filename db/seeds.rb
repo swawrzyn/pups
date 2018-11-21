@@ -15,11 +15,13 @@ Review.destroy_all
 
 
 10.times do
-  User.create!(open_id: Faker::IDNumber.valid)
+  User.create!(open_id: Faker::IDNumber.valid,
+               avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/t79CAiczXkYA0NBQk1oic91fOrgibdkSns9VopiccNJgCdibxzlib5csooJtY1vJJ3ibkibQwVibeU0ylDRfdIB98LR7rSQ/132",
+               nickName: "tommy")
 end
 
 User.all.each do |user|
-  Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://picsum.photos/200/300/?random")
+  Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://i.pinimg.com/originals/89/0a/8a/890a8a833c59bf6b880e44f9ad146050.jpg")
 end
 
 Booking.create(pup: Pup.first, user: User.last, time_start: "2018-11-17", time_end: "2018-11-18", accepted: true)
