@@ -15,7 +15,9 @@ Review.destroy_all
 
 
 10.times do
-  User.create!(open_id: Faker::IDNumber.valid)
+  User.create!(open_id: Faker::IDNumber.valid,
+               avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/t79CAiczXkYA0NBQk1oic91fOrgibdkSns9VopiccNJgCdibxzlib5csooJtY1vJJ3ibkibQwVibeU0ylDRfdIB98LR7rSQ/132",
+               nickName: "tommy")
 end
 
 User.all.each do |user|

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_102308) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.boolean "accepted"
+    t.boolean "accepted", default: false
     t.datetime "time_start"
     t.datetime "time_end"
     t.bigint "pup_id"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_102308) do
 
   create_table "users", force: :cascade do |t|
     t.string "open_id"
+    t.string "avatarUrl"
+    t.string "nickName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
