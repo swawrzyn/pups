@@ -21,7 +21,7 @@ Review.destroy_all
 end
 
 User.all.each do |user|
-  Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://picsum.photos/200/300/?random")
+  Pup.create!(user: user, name: Faker::Company.name,location: Faker::Address.street_address,description: Faker::GameOfThrones.quote, price: Random.new.rand(100..1000),image: "https://i.pinimg.com/originals/89/0a/8a/890a8a833c59bf6b880e44f9ad146050.jpg")
 end
 
 Booking.create(pup: Pup.first, user: User.last, time_start: "2018-11-17", time_end: "2018-11-18", accepted: true)
