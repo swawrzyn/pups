@@ -1,6 +1,4 @@
 class Api::V1::BookingsController < Api::V1::BaseController
-
-
   def new
     @pup = Pup.find(params[:pup_id])
     @booking = Booking.new(booking_params)
@@ -14,10 +12,11 @@ class Api::V1::BookingsController < Api::V1::BaseController
     @pup = Pup.find(params[:pup_id])
     @booking = Booking.new(booking_params)
     @booking.pup = @pup
+
     if @booking.save
       render :show, status: :created
     else
-      render :error
+      render_error
     end
   end
 
