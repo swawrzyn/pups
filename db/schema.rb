@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_102308) do
 
   create_table "users", force: :cascade do |t|
     t.string "open_id"
-    t.string "avatarUrl"
-    t.string "nickName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

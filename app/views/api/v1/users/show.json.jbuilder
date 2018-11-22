@@ -1,5 +1,5 @@
 json.user do
-  json.extract! @user, :id, :open_id
+  json.extract! @user, :open_id, :avatarUrl, :nickName
   json.bookings @user.bookings do |booking|
     json.extract! booking, :time_start, :time_end, :accepted
     json.pup do
