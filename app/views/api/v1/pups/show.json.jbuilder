@@ -3,7 +3,7 @@ json.extract! @pup, :id, :name, :location, :description, :image, :price, :avg_ra
     json.extract! @pup.user
       json.reviews @pup.reviews do |review| #is pup.bookings.reviews or pup.reviews?
         json.extract! review, :content, :rating
-        json.extract! review.user :id, :avatarUrl, :nickName
+        json.extract! review.user, :id, :avatarUrl, :nickName
         json.date review.created_at.strftime('%m/%d/%y')
     end
 
