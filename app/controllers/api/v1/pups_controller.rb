@@ -11,7 +11,7 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def update
     @pup = Pup.find(params[:id])
-    if (@pup.update pup_params)
+    if @pup.update pup_params
       render :show, status: :created
     else
       render_error
@@ -20,8 +20,6 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def create
     @pup = Pup.new(pup_params)
-    @user = User.find(params[:user_id])
-    @pup.user = @user
     if @pup.save
       render :show, status: :created
     else
@@ -34,8 +32,8 @@ class Api::V1::PupsController < Api::V1::BaseController
     @pup.destroy
   end
 
-
   private
+
   def pup_params
     params.require(:pup).permit(:user_id, :name, :location, :description, :images, :price)
   end
