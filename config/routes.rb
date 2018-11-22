@@ -6,13 +6,13 @@ Rails.application.routes.draw do
         resources :bookings, only: [ :new, :create ]
       end
       resources :bookings, only: [:show, :update]
-      resources :users, only: [ :show ]
+      resources :users, only: [ :show, :update ]
     end
   end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :reviews, only: [ :index, :create ]
+      resources :reviews, only: [ :create ]
     end
   end
 end
