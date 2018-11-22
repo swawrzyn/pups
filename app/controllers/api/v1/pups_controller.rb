@@ -20,6 +20,7 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def create
     @pup = Pup.new(pup_params)
+    params[:pup][:images].each { |image| @pup.images << image }
     if @pup.save
       render :show, status: :created
     else
