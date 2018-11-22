@@ -20,7 +20,6 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def create
     @pup = Pup.new(pup_params)
-    params[:pup][:images].each { |image| @pup.images << image }
     if @pup.save
       render :show, status: :created
     else
@@ -36,7 +35,7 @@ class Api::V1::PupsController < Api::V1::BaseController
   private
 
   def pup_params
-    params.require(:pup).permit(:user_id, :name, :location, :description, :images, :price)
+    params.require(:pup).permit(:user_id, :name, :location, :description, :price, :images => [])
   end
 
   def render_error
