@@ -20,6 +20,15 @@ class Api::V1::BookingsController < Api::V1::BaseController
     end
   end
 
+  def update
+    @booking = booking.find(params[:id])
+    if (@booking.update booking_params)
+      render :show, status: :created
+    else
+      render_error
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
