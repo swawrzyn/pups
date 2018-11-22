@@ -12,7 +12,7 @@ json.user do
   json.pups @user.pups do |pup|
     json.extract! pup, :name, :location, :description, :images, :price, :avg_rating
       json.bookings pup.bookings do |booking|
-        json.extract! booking, :user_id, :time_start, :time_end, :accepted
+        json.extract! booking, :id, :user_id, :time_start, :time_end, :accepted
       end
   end
   json.reviews @user.reviews do |review|
