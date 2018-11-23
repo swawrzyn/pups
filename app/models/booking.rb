@@ -4,6 +4,6 @@ class Booking < ApplicationRecord
   has_many :reviews
   validates :pup, presence: true
   validates :user, presence: true
-  validates :time_start, presence: true, uniqueness: { scope: :user }
+  validates :time_start, presence: true
   validates :time_end, presence: true
 end
