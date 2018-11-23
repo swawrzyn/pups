@@ -1,7 +1,7 @@
 class Pup < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_name_and_location_and_description,
-    against: [ :name, :location, :description ],
+    against: [ :name, :location, :description, :price, :avg_rating ],
   using: {
     tsearch: { prefix: true }
   }
