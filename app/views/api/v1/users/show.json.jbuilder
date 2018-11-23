@@ -4,9 +4,9 @@ json.user do
     json.extract! booking, :id, :time_start, :time_end, :accepted
     json.pup do
       json.extract! booking.pup, :id, :name, :location, :description, :images, :price, :avg_rating
-        json.reviews booking.pup.reviews do |review|
-            json.extract! review, :content, :rating
-        end
+      json.reviews booking.pup.reviews do |review|
+          json.extract! review, :user_id, :content, :rating
+      end
     end
   end
   json.pups @user.pups do |pup|
@@ -16,9 +16,7 @@ json.user do
       end
   end
   json.reviews @user.reviews do |review|
-    json.extract! review, :user, :content, :rating
+    json.extract! review, :id, :content, :rating
     json.date review.created_at.strftime('%m/%d/%y')
   end
 end
-
-
