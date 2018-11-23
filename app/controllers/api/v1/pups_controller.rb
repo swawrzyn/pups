@@ -39,7 +39,7 @@ class Api::V1::PupsController < Api::V1::BaseController
   private
 
   def pup_params
-    params.require(:pup).permit(:user_id, :name, :location, :description, :price, :images => [])
+    params.require(:pup).permit(:user_id, :name, :location, :description, :price, :lat, :long, images: [])
   end
 
   def render_error
