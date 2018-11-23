@@ -2,7 +2,11 @@ class Api::V1::PupsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
   def index
-    @pups = Pup.all
+    if params[:query]
+      @pups = Pup.search_by_name_and_location_and_description(params[:query])
+    else
+      @pups = Pup.all
+    end
   end
 
   def show

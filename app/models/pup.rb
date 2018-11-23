@@ -1,4 +1,11 @@
 class Pup < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_by_name_and_location_and_description,
+    against: [ :name, :location, :description ],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   belongs_to :user
   validates :name, uniqueness: true, presence: true
   validates :location, presence: true
