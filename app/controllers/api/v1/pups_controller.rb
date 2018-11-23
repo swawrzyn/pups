@@ -3,7 +3,7 @@ class Api::V1::PupsController < Api::V1::BaseController
 
   def index
     if params[:query]
-      @pups = Pup.search_by_name_and_location_and_description(params[:query])
+      @pups = Pup.search_by_name_and_location_and_description_and_price(params[:query])
     else
       @pups = Pup.all
     end

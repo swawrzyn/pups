@@ -1,7 +1,7 @@
 class Pup < ApplicationRecord
   include PgSearch
-  pg_search_scope :search_by_name_and_location_and_description,
-    against: [ :name, :location, :description, :price, :avg_rating ],
+  pg_search_scope :search_by_name_and_location_and_description_and_price,
+    against: [ :name, :location, :description, :price],
   using: {
     tsearch: { prefix: true }
   }
@@ -22,6 +22,7 @@ class Pup < ApplicationRecord
     reviews.each { |review| average += review.rating }
     (average / reviews.count).floor
   end
+
 
   def unavailable_dates
     unavailable_dates = []
